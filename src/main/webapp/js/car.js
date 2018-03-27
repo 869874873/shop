@@ -6,3 +6,4 @@ function gotoPay(){
 function addCar(){
 	$.messager.alert("提示","添加成功！")
 }
+//被玩坏了？
