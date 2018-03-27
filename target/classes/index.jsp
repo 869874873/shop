@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<!-- <link href="jquery-easyui-1.5.4.2/themes/default/easyui.css" rel="stylesheet" />
-<link href="jquery-easyui-1.5.4.2/themes/icon.css" rel="stylesheet" /> -->
+<link href="jquery-easyui-1.5.4.2/themes/default/easyui.css" rel="stylesheet" />
+<link href="jquery-easyui-1.5.4.2/themes/icon.css" rel="stylesheet" />
 <link href="css/demo.css" rel="stylesheet" />
 <script type="text/javascript" src="jquery-easyui-1.5.4.2/jquery.min.js"></script>
 <script type="text/javascript" src="jquery-easyui-1.5.4.2/jquery.easyui.min.js"></script>
@@ -20,56 +20,74 @@
     <div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img src = "images/20170619160710.gif" style = "width:200px;height:200px;">
+    		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<span name = "name">name : 商品1</span>
+    		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
     			<span name = "price">price : ￥50</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a href = "" onclick = "addCar()">加入购物车</a>
+    			<a onclick = "addCar(this)">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img src = "images/20170717135122.gif" style = "width:200px;height:200px;">
+    		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<span name = "name">name : 商品2</span>
+    		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
     			<span name = "price">price : ￥74</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a href = "" onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img src = "images/20171013133846.gif" style = "width:200px;height:200px;">
+    		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<span name = "name">name : 商品3</span>
+    		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
     			<span name = "price">price : ￥63</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a href = "" onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img src = "images/20180110132354.gif" style = "width:200px;height:200px;">
+    		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<span name = "name">name : 商品4</span>
+    		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
     			<span name = "price">price : ￥15</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a href = "" onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img src = "images/20180110132402.gif" style = "width:200px;height:200px;">
+    		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<span name = "name">name : 商品5</span>
+    		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
     			<span name = "price">price : ￥2</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a href = "" onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img src = "images/20180131144647.gif" style = "width:200px;height:200px;">
+    		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<span name = "name">name : 商品6</span>
+    		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
     			<span name = "price">price : ￥98</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a href = "" onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
     </div>

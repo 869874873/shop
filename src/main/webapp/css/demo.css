@@ -11,3 +11,12 @@ body {
 	font-size : 20px;
 	float: right;
 }
+a {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+a:visited{
+	color: #6b02da;
+}
