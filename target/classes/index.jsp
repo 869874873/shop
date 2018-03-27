@@ -16,6 +16,25 @@
 <title>购物车</title>
 </head>
 <body>
-    
+    <div>
+    	<div>
+    		<img src = "images/20170619160710.gif" style = "width:100px;height:100px;">
+    	</div>
+    	<div>
+    		<img src = "images/20170717135122.gif" style = "width:100px;height:100px;">
+    	</div>
+    	<div>
+    		<img src = "images/20171013133846.gif" style = "width:100px;height:100px;">
+    	</div>
+    	<div>
+    		<img src = "images/20180110132354.gif" style = "width:100px;height:100px;">
+    	</div>
+    	<div>
+    		<img src = "images/20180110132402.gif" style = "width:100px;height:100px;">
+    	</div>
+    	<div>
+    		<img src = "images/20180131144647.gif" style = "width:100px;height:100px;">
+    	</div>
+    </div>
 </body>
 </html>
