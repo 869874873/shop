@@ -27,7 +27,8 @@
     			<span name = "price">price : ￥50</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<a onclick = "addCar(this)">加入购物车</a>
+    			<input type = "radio" name = "product">
+    			<a onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
@@ -39,6 +40,7 @@
     			<span name = "price">price : ￥74</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<input type = "radio" name = "product">
     			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
@@ -51,6 +53,7 @@
     			<span name = "price">price : ￥63</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<input type = "radio" name = "product">
     			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
@@ -63,6 +66,7 @@
     			<span name = "price">price : ￥15</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<input type = "radio" name = "product">
     			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
@@ -75,6 +79,7 @@
     			<span name = "price">price : ￥2</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<input type = "radio" name = "product">
     			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
@@ -87,6 +92,7 @@
     			<span name = "price">price : ￥98</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
+    			<input type = "radio" name = "product">
     			<a  onclick = "addCar()">加入购物车</a>
     		</div>
     	</div>
