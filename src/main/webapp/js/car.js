@@ -9,13 +9,13 @@ function setCookie(name, value) {
 }
 // 读取cookie
 function getCookie(name) {
-	var arr, reg = new RegExp("(^| )"+name+"=([^;]*)(;|$)");
-	if (arr = document.cookie.match(reg)){
+	var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+	if (arr = document.cookie.match(reg)) {
 		return unescape(arr[2]);
-	}else{
+	} else {
 		return null;
 	}
-		
+
 }
 // 添加到购物车
 function addCar(id) {
@@ -31,9 +31,13 @@ function addCar(id) {
 		name : name,
 		img : img,
 		price : price
-	}
+	};
 	arr.push(product);
-	setCookie("product", JSON.stringify(arr))
+	var rows = {
+		total : arr.length,
+		rows : arr
+	}
+	setCookie("product", JSON.stringify(rows))
 	$.messager.alert("提示", "添加成功");
 }
 // 好像好了
