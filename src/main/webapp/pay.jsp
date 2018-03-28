@@ -22,18 +22,16 @@
 		curindex = JSON.parse(curindex);
 		$('#datagrid').datagrid('loadData',curindex);
 		$("#datagrid").datagrid({  
-	        onClickRow: function (index, row) {  //easyui封装好的时间（被单机行的索引，被单击行的值）
+	        onSelect: function (index, row) {  //easyui封装好的时间（被单机行的索引，被单击行的值）
 	        	price += parseInt(row.price.replace("￥","")) * parseInt(row.option);
 	        	$("#cost").html(price)
 	        },
 	        onUnselect: function (index, row) {
 	        	if (!IsCheckFlag) {
 	        		IsCheckFlag = false;
-	        		console.log(row)
 	        		price -= parseInt(row.price.replace("￥","")) * parseInt(row.option);
-	        		console.log(price)
-	        		$("#cost").html(price)
 	        	}
+	        	$("#cost").html(price)
 	       	}
 	    });
 	});
