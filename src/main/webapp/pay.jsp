@@ -4,9 +4,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+	$(function(){
+		var curindex = getCookie("product");
+		curindex = JSON.parse(curindex);
+		for(var i = 0;i<curindex.length;i++){
+			console.log(curindex[i].id)
+		}
+	})
+</script>
 <title>Insert title here</title>
 </head>
 <body>
-
+<div></div>
+	
+ 	<div style = "bottom: 0;position: fixed;width: 1000px;">
+    	<div style = "font-size:20px;">金额：
+	    	<span id = "cost">****</span>
+    	</div>
+    </div>
 </body>
 </html>

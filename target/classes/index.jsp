@@ -19,81 +19,75 @@
 <body>
     <div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
-    		<img src = "images/20170619160710.gif" style = "width:200px;height:200px;">
+    		<img id="img_1" src = "images/20170619160710.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<span name = "name">name : 商品1</span>
+    			name : <span id = "name_1">商品1</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
-    			<span name = "price">price : ￥50</span>
+    			price : <span id  = "price_1">￥50</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<input type = "radio" name = "product">
-    			<a onclick = "addCar()">加入购物车</a>
+    			<a onclick = "addCar(1)">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
-    		<img src = "images/20170717135122.gif" style = "width:200px;height:200px;">
+    		<img id="img_2" src = "images/20170717135122.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<span name = "name">name : 商品2</span>
+    			name : <span id  = "name_2">商品2</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
-    			<span name = "price">price : ￥74</span>
+    			price : <span id  = "price_2">￥74</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<input type = "radio" name = "product">
-    			<a  onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar(2)">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
-    		<img src = "images/20171013133846.gif" style = "width:200px;height:200px;">
+    		<img id="img_3" src = "images/20171013133846.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<span name = "name">name : 商品3</span>
+    			name : <span id  = "name_3">商品3</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
-    			<span name = "price">price : ￥63</span>
+    			price : <span id  = "price_3">￥63</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<input type = "radio" name = "product">
-    			<a  onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar(3)">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
-    		<img src = "images/20180110132354.gif" style = "width:200px;height:200px;">
+    		<img id="img_4" src = "images/20180110132354.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<span name = "name">name : 商品4</span>
+    			name : <span id  = "name_4">商品4</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
-    			<span name = "price">price : ￥15</span>
+    			price :<span id  = "price_4">￥15</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<input type = "radio" name = "product">
-    			<a  onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar(4)">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
-    		<img src = "images/20180110132402.gif" style = "width:200px;height:200px;">
+    		<img id="img_5" src = "images/20180110132402.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<span name = "name">name : 商品5</span>
+    			name : <span id  = "name_5"> 商品5</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
-    			<span name = "price">price : ￥2</span>
+    			price :<span id  = "price_5">￥2</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<input type = "radio" name = "product">
-    			<a  onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar(5)">加入购物车</a>
     		</div>
     	</div>
     	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
-    		<img src = "images/20180131144647.gif" style = "width:200px;height:200px;">
+    		<img id="img_6" src = "images/20180131144647.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<span name = "name">name : 商品6</span>
+    			name : <span id  = "name_6">商品6</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;color : red;">
-    			<span name = "price">price : ￥98</span>
+    			price :<span id  = "price_6">￥98</span>
     		</div>
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
-    			<input type = "radio" name = "product">
-    			<a  onclick = "addCar()">加入购物车</a>
+    			<a  onclick = "addCar(6)">加入购物车</a>
     		</div>
     	</div>
     </div>
