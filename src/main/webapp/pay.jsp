@@ -16,6 +16,7 @@
 <script type="text/javascript" src="js/car.js"></script>
 <script type="text/javascript">
 	$(function() {
+		var IsCheckFlag = false;
 		var price = 0;
 		var curindex = getCookie("product");
 		curindex = JSON.parse(curindex);
@@ -24,7 +25,16 @@
 	        onClickRow: function (index, row) {  //easyui封装好的时间（被单机行的索引，被单击行的值）
 	        	price += parseInt(row.price.replace("￥","")) * parseInt(row.option);
 	        	$("#cost").html(price)
-	        }
+	        },
+	        onUnselect: function (index, row) {
+	        	if (!IsCheckFlag) {
+	        		IsCheckFlag = false;
+	        		console.log(row)
+	        		price -= parseInt(row.price.replace("￥","")) * parseInt(row.option);
+	        		console.log(price)
+	        		$("#cost").html(price)
+	        	}
+	       	}
 	    });
 	});
 	function imgFormatter(value,row,index){

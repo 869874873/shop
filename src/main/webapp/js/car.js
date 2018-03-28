@@ -1,7 +1,7 @@
 var arr = [];
 // 前往结算页面
 function gotoPay() {
-	//location.href = "pay.jsp";
+	location.href = "pay.jsp";
 }
 // 设置为cookie
 function setCookie(name, value) {
@@ -37,9 +37,10 @@ function addCar(id) {
 		for (var i = 0; i < arr.length; i++) {
 			if(arr[i].id == id){
 				arr[i].option++;
-			}
-			if(arr[arr.length-1].id != id){
+				break;
+			}else if(arr[arr.length-1].id != id && i+1 == arr.length){
 				arr.push(product);
+				break;
 			}
 		}
 	}else{
@@ -49,7 +50,6 @@ function addCar(id) {
 		total : arr.length,
 		rows : arr
 	}
-	console.log(arr)
 	setCookie("product", JSON.stringify(rows))
 	//$.messager.alert("提示", "添加成功");
 }
