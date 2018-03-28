@@ -1,7 +1,7 @@
 var arr = [];
 // 前往结算页面
 function gotoPay() {
-	location.href = "pay.jsp";
+	//location.href = "pay.jsp";
 }
 // 设置为cookie
 function setCookie(name, value) {
@@ -30,14 +30,27 @@ function addCar(id) {
 		id : id,
 		name : name,
 		img : img,
-		price : price
+		price : price,
+		option : 1
 	};
-	arr.push(product);
+	if(arr.length !=0){
+		for (var i = 0; i < arr.length; i++) {
+			if(arr[i].id == id){
+				arr[i].option++;
+			}
+			if(arr[arr.length-1].id != id){
+				arr.push(product);
+			}
+		}
+	}else{
+		arr.push(product);
+	}
 	var rows = {
 		total : arr.length,
 		rows : arr
 	}
+	console.log(arr)
 	setCookie("product", JSON.stringify(rows))
-	$.messager.alert("提示", "添加成功");
+	//$.messager.alert("提示", "添加成功");
 }
 // 好像好了
