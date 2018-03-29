@@ -70,20 +70,29 @@ $(function() {
         	$("#cost").html(price);
 		}
 	});
+	//只能通过点击checkbox选中
 	var s= $("#datagrid").datagrid('getPanel');
 	var rows = s.find('tr.datagrid-row td[field!=ck]');
 	rows.unbind('click').bind('click', function(e) {
 		return false;
 	});
 });
+//加载图片效果
 function imgFormatter(value,row,index){
 	return "<img style = 'width : 50px;height : 50px;' src = '"+value+"'/>";
 };
+//加载按钮效果
 function optionFormatter(value,row,index){
 	var price = row.price.replace("￥","");
 	return "<button class = \"opt-btn\" onclick = \"reduceOption("+index+","+price+")\">-</button><span id = \"option_"+index+"\">"+value+"</span><button class = \"opt-btn\" onclick = \"addOption("+index+","+price+")\">+</button>";
 };
+//数量+1
 function addOption(index,pri){
+//	var s= $("#datagrid").datagrid('getPanel');
+//	var rows = s.find('tr.datagrid-row td[field = option]');
+//	rows.unbind('click').bind('click', function(e) {
+//		return true;
+//	});
 	var option = $("#option_" + index).html();
 	var allRows = $("#datagrid").datagrid('getChecked');
 	if (option < 99) {
@@ -97,7 +106,13 @@ function addOption(index,pri){
 		$.messager.alert("提示", "商品最大选择数量为99");
 	}
 }
+//数量-1
 function reduceOption(index,pri){
+//	var s= $("#datagrid").datagrid('getPanel');
+//	var rows = s.find('tr.datagrid-row td[field = option]');
+//	rows.unbind('click').bind('click', function(e) {
+//		return true;
+//	});
 	var option = $("#option_" + index).html();
 	var allRows = $("#datagrid").datagrid('getChecked');
 	if (option > 1) {
@@ -108,6 +123,6 @@ function reduceOption(index,pri){
 			$("#cost").html(price);
 		}
 	} else {
-		$.messager.alert("提示", "商品最大选择数量为99");
+		$.messager.alert("提示", "商品最小选择数量为1");
 	}
 }
