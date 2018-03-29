@@ -1,3 +1,4 @@
+var price = 0;
 var arr = [];
 // 前往结算页面
 function gotoPay() {
@@ -53,4 +54,60 @@ function addCar(id) {
 	setCookie("product", JSON.stringify(rows))
 	//$.messager.alert("提示", "添加成功");
 }
-// 好像好了
+$(function() {
+	var curindex = getCookie("product");
+	curindex = JSON.parse(curindex);
+	$('#datagrid').datagrid('loadData', curindex);
+	$("#datagrid").datagrid({
+		onSelect : function(index,row){
+			var option = $("#option_"+index).html();
+			price += parseInt(row.price.replace("￥","")) * option;
+        	$("#cost").html(price);
+		},
+		onUnselect : function(index,row){
+			var option = $("#option_"+index).html();
+			price -= parseInt(row.price.replace("￥","")) * option;
+        	$("#cost").html(price);
+		}
+	});
+	var s= $("#datagrid").datagrid('getPanel');
+	var rows = s.find('tr.datagrid-row td[field!=ck]');
+	rows.unbind('click').bind('click', function(e) {
+		return false;
+	});
+});
+function imgFormatter(value,row,index){
+	return "<img style = 'width : 50px;height : 50px;' src = '"+value+"'/>";
+};
+function optionFormatter(value,row,index){
+	var price = row.price.replace("￥","");
+	return "<button class = \"opt-btn\" onclick = \"reduceOption("+index+","+price+")\">-</button><span id = \"option_"+index+"\">"+value+"</span><button class = \"opt-btn\" onclick = \"addOption("+index+","+price+")\">+</button>";
+};
+function addOption(index,pri){
+	var option = $("#option_" + index).html();
+	var allRows = $("#datagrid").datagrid('getChecked');
+	if (option < 99) {
+		option++;
+		$("#option_" + index).html(option);
+		if (allRows[index] != undefined) {
+			price += parseInt(pri);
+			$("#cost").html(price);
+		}
+	} else {
+		$.messager.alert("提示", "商品最大选择数量为99");
+	}
+}
+function reduceOption(index,pri){
+	var option = $("#option_" + index).html();
+	var allRows = $("#datagrid").datagrid('getChecked');
+	if (option > 1) {
+		option--;
+		$("#option_" + index).html(option);
+		if (allRows[index] != undefined) {
+			price -= parseInt(pri);
+			$("#cost").html(price);
+		}
+	} else {
+		$.messager.alert("提示", "商品最大选择数量为99");
+	}
+}

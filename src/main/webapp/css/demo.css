@@ -20,3 +20,11 @@ a {
 a:visited{
 	color: #6b02da;
 }
+
+.opt-btn {
+	width : 30px;
+	height : 20px;
+	background: #e5e5e5;
+	border: 0;
+	margin: 0 10px 0 10px;
+}
