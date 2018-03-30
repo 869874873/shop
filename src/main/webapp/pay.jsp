@@ -14,6 +14,7 @@
 <script type="text/javascript"
 	src="jquery-easyui-1.5.4.2/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="js/car.js"></script>
+<script type="text/javascript" src="js/pay.js"></script>
 <title>支付页面</title>
 </head>
 <body>
