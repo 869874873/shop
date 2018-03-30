@@ -33,22 +33,29 @@ function addCar(id) {
 		price : price,
 		option : 1
 	};
-	if(arr.length !=0){
-		for (var i = 0; i < arr.length; i++) {
-			if(arr[i].id == id){
-				arr[i].option++;
+	var curindex = getCookie("product");
+	curindex = JSON.parse(curindex);
+	var rows = {};
+	if(curindex.rows.length !=0){
+		for (var i = 0; i < curindex.rows.length; i++) {
+			if(curindex.rows[i].id == id){
+				curindex.rows[i].option++;
 				break;
-			}else if(arr[arr.length-1].id != id && i+1 == arr.length){
-				arr.push(product);
+			}else if(curindex.rows[curindex.rows.length-1].id != id && i+1 == curindex.rows.length){
+				curindex.rows.push(product);
 				break;
 			}
+		};
+		rows = {
+			total : curindex.rows.length,
+			rows : curindex.rows
 		}
 	}else{
 		arr.push(product);
-	}
-	var rows = {
-		total : arr.length,
-		rows : arr
+		rows = {
+			total : arr.length,
+			rows : arr
+		}
 	}
 	setCookie("product", JSON.stringify(rows))
 	//$.messager.alert("提示", "添加成功");

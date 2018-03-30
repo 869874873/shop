@@ -98,7 +98,8 @@ function delProduct(index){
 	curindex = JSON.parse(curindex);
 	for (var i = 0; i < curindex.rows.length; i++) {
 		if(i == index){
-			curindex.rows.pop(index);
+			//删除 从i下标开始，指定长度的一个数据
+			curindex.rows.splice(i,1);
 			break;
 		}
 	}
