@@ -1,5 +1,5 @@
+//起始金额
 var price = 0;
-var arr = [];
 $(function() {
 	var curindex = getCookie("product");
 	curindex = JSON.parse(curindex);
