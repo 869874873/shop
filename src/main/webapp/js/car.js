@@ -84,7 +84,8 @@ function imgFormatter(value,row,index){
 //加载按钮效果
 function optionFormatter(value,row,index){
 	var price = row.price.replace("￥","");
-	return "<button class = \"opt-btn\" onclick = \"reduceOption("+index+","+price+")\">-</button><span id = \"option_"+index+"\">"+value+"</span><button class = \"opt-btn\" onclick = \"addOption("+index+","+price+")\">+</button>";
+	return "<button class = \"opt-btn\" onclick = \"reduceOption("+index+","+price+")\">-</button><span id = \"option_"+index+"\">"+value+"</span><button class = \"opt-btn\" onclick = \"addOption("+index+","+price+")\">+</button>" +
+			"<button class = \"opt-btn\" style = \"width : 50px;\" onclick = \"delProduct("+index+")\">删除</button>";
 };
 //数量+1
 function addOption(index,pri){
@@ -93,11 +94,20 @@ function addOption(index,pri){
 //	rows.unbind('click').bind('click', function(e) {
 //		return true;
 //	});
+	var curindex = getCookie("product");
+	curindex = JSON.parse(curindex);
 	var option = $("#option_" + index).html();
 	var allRows = $("#datagrid").datagrid('getChecked');
 	if (option < 99) {
 		option++;
 		$("#option_" + index).html(option);
+		for (var i = 0; i < curindex.rows.length; i++) {
+			if(i == index){
+				curindex.rows[i].option = option;
+				break;
+			}
+		}
+		setCookie("product",JSON.stringify(curindex))
 		if (allRows[index] != undefined) {
 			price += parseInt(pri);
 			$("#cost").html(price);
@@ -113,11 +123,21 @@ function reduceOption(index,pri){
 //	rows.unbind('click').bind('click', function(e) {
 //		return true;
 //	});
+	//把修改后的参数，写入cookie
+	var curindex = getCookie("product");
+	curindex = JSON.parse(curindex);
 	var option = $("#option_" + index).html();
 	var allRows = $("#datagrid").datagrid('getChecked');
 	if (option > 1) {
 		option--;
 		$("#option_" + index).html(option);
+		for (var i = 0; i < curindex.rows.length; i++) {
+			if(i == index){
+				curindex.rows[i].option = option;
+				break;
+			}
+		}
+		setCookie("product",JSON.stringify(curindex))
 		if (allRows[index] != undefined) {
 			price -= parseInt(pri);
 			$("#cost").html(price);
@@ -125,4 +145,17 @@ function reduceOption(index,pri){
 	} else {
 		$.messager.alert("提示", "商品最小选择数量为1");
 	}
+}
+
+function delProduct(index){
+	var curindex = getCookie("product");
+	curindex = JSON.parse(curindex);
+	for (var i = 0; i < curindex.rows.length; i++) {
+		if(i == index){
+			curindex.rows.pop(index);
+			break;
+		}
+	}
+	setCookie("product",JSON.stringify(curindex))
+	$('#datagrid').datagrid('loadData', curindex);
 }
