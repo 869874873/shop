@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" > 
+<mapper namespace = "com.shop.dao.ProductMapper">
+	<resultMap type="com.shop.model.Product" id="baseResult">
+		<id column="id" property="id"/>
+		<result column="name" property="name"/>
+		<result column="img" property="img"/>
+		<result column="price" property="price"/>
+	</resultMap>
+	<sql id="sqlCon">
+		id,name,img,price
+	</sql>
+	<!-- 查询所有用户信息 -->
+	<select id="selectAllProduct" resultMap="baseResult" parameterType="com.shop.model.Product">
+		select
+		<include refid="sqlCon"></include>
+		from product
+		<if test="name != ''">
+			<where>
+				name like '%${name}%'
+			</where>
+		</if>
+		<if test="pageIndex != null and pageSize != null">
+			limit #{pageIndex},#{pageSize}
+		</if>
+	</select>
+	<!-- 查询数据总条数 -->
+	<select id="countProduct" resultMap="baseResult" parameterType="com.shop.model.Product">
+		select
+		<include refid="sqlCon"></include>
+		from product
+		<if test="name != ''">
+			<where>
+				name like '%${name}%'
+			</where>
+		</if>
+	</select>
+	<!-- 根据id查询指定用户 -->
+	<select id="selectProductById" resultMap="baseResult" parameterType="com.shop.model.Product">
+		select
+		<include refid="sqlCon"></include>
+		from product 
+		<where>
+			id = #{id}
+		</where>
+	</select>
+	<!-- 删除用户信息 -->
+	<delete id="deleteProduct" parameterType="com.shop.model.Product">
+		delete from product 
+		<where> 
+			id = #{id}
+		</where>
+	</delete>
+	<!-- 新增（插入）用户信息 -->
+	<insert id="insertProduct" parameterType="com.shop.model.Product">
+		insert into product (name,pwd) values (#{name},#{pwd})
+	</insert>
+	<!-- 修改（更新）用户信息 -->
+	<update id="updateProduct" parameterType="com.shop.model.Product">
+		update product set name = #{name},pwd = #{pwd} 
+		<where>
+			id = #{id}
+		</where>
+	</update>
+</mapper>
