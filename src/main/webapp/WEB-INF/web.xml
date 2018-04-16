@@ -4,7 +4,7 @@
 	xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" xmlns="http://java.sun.com/xml/ns/javaee"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0">
 
-	<display-name>mvn</display-name>
+	<display-name>shoppingcar</display-name>
 
 	<context-param>
 		<param-name>contextConfigLocation</param-name>

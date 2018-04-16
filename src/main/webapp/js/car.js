@@ -1,8 +1,9 @@
 var arr = [];
 $(function() {
 	$.ajax({
-		url: 'ctrl/user/selectUserById',
+		url: 'ctrl/product/selectAllProduct',
 		success: function (data) {
+			console.log(data)
 			$("#panal").accordion('add', {  
 		        title: '商品展示',  
 		        content: "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
