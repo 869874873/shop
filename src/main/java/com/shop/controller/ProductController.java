@@ -38,14 +38,14 @@ public class ProductController {
 	@ResponseBody
 	@RequestMapping(value = "/selectAllProduct")
 	public JSONObject selectAllProduct(@RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
-			@RequestParam(required = false, defaultValue = "10") Integer rows, // 页数大小
+			@RequestParam(required = false, defaultValue = "12") Integer rows, // 页数大小
 			@RequestParam(required = false, defaultValue = "") String name,
 			@RequestParam(required = false, defaultValue = "") String createTime) {
 		JSONObject params = new JSONObject();
 		params.put("pageSize", rows);
 		params.put("name", name);
 		params.put("pageIndex", (page - 1) * rows);
-		List<Product> selectAllProduct = productService.selectAllProduct(null);
+		List<Product> selectAllProduct = productService.selectAllProduct(params);
 		JSONObject result = new JSONObject();
 		List<Product> countProduct = null;
 		result.put("rows", selectAllProduct);

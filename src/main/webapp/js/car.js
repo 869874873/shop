@@ -4,7 +4,8 @@ $(function() {
 	$.ajax({
 		url: 'ctrl/product/selectAllProduct',
 		success: function (data) {
-			for (var i = 0; i < data.total; i++) {
+			console.log(data)
+			for (var i = 0; i < data.rows.length; i++) {
 				var product = data.rows[i];
 				str += "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
         		"<img id=\"img_"+product.id+"\" src = \""+product.img+"\" style = \"width:200px;height:200px;\">" +
@@ -16,6 +17,10 @@ $(function() {
         		"<a onclick = \"addCar("+product.id+")\">加入购物车</a></div></div>";
 			}
 			$("#panel").html(str);
+			if(data.total%data.rows.length == 0)
+				$("#total").html(data.total/data.rows.length)
+			else
+				$("#total").html(parseInt(data.total/data.rows.length)+1)
 		}
 	})
 	
