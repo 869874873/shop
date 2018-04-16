@@ -45,7 +45,7 @@ public class ProductController {
 		params.put("pageSize", rows);
 		params.put("name", name);
 		params.put("pageIndex", (page - 1) * rows);
-		List<Product> selectAllProduct = productService.selectAllProduct(params);
+		List<Product> selectAllProduct = productService.selectAllProduct(null);
 		JSONObject result = new JSONObject();
 		List<Product> countProduct = null;
 		result.put("rows", selectAllProduct);

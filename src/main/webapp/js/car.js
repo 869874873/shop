@@ -1,22 +1,24 @@
 var arr = [];
 $(function() {
+	var str = "";
 	$.ajax({
 		url: 'ctrl/product/selectAllProduct',
 		success: function (data) {
-			console.log(data)
-			$("#panal").accordion('add', {  
-		        title: '商品展示',  
-		        content: "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
-		        		"<img id=\"img_1\" src = \"images/20170619160710.gif\" style = \"width:200px;height:200px;\">" +
-		        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
-		        		"name : <span id = \"name_1\">商品1</span></div>" +
-		        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;color : red;\">" +
-		        		"price : <span id  = \"price_1\">￥50</span></div>" +
-		        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
-		        		"<a onclick = \"addCar(1)\">加入购物车</a></div></div>"  
-		    });
+			for (var i = 0; i < data.total; i++) {
+				var product = data.rows[i];
+				str += "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
+        		"<img id=\"img_"+product.id+"\" src = \""+product.img+"\" style = \"width:200px;height:200px;\">" +
+        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
+        		"name : <span id = \"name_"+product.id+"\">"+product.name+"</span></div>" +
+        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;color : red;\">" +
+        		"price : <span id  = \"price_"+product.id+"\">￥"+product.price+"</span></div>" +
+        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
+        		"<a onclick = \"addCar("+product.id+")\">加入购物车</a></div></div>";
+			}
+			$("#panel").html(str);
 		}
 	})
+	
 });
 // 前往结算页面
 function gotoPay() {
@@ -55,7 +57,7 @@ function addCar(id) {
 	var curindex = getCookie("product");
 	curindex = JSON.parse(curindex);
 	var rows = {};
-	if(curindex.rows.length !=0){
+	if(curindex != null && curindex.rows.length != 0){
 		for (var i = 0; i < curindex.rows.length; i++) {
 			if(curindex.rows[i].id == id){
 				curindex.rows[i].option++;

@@ -19,7 +19,7 @@
 <body>
     <div id = "panel">
     	
-    	<div style = "float:left;margin-left : 20px;margin-top: 20px;">
+    	<!-- <div style = "float:left;margin-left : 20px;margin-top: 20px;">
     		<img id="img_2" src = "images/20170717135122.gif" style = "width:200px;height:200px;">
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
     			name : <span id  = "name_2">商品2</span>
@@ -78,7 +78,7 @@
     		<div style = "text-align: center;font-size : 15px;margin-top:10px;">
     			<a  onclick = "addCar(6)">加入购物车</a>
     		</div>
-    	</div>
+    	</div> -->
     </div>
     <div style = "bottom: 0;position: fixed;width: 1000px;">
     	<div>
