@@ -15,17 +15,17 @@
 <title>购物车</title>
 </head>
 <body>
-    <div id = "panel"></div>
-    <div >
-    	<div style = "margin:0 auto;width: 700px;margin-top: 100px;">
-	    	<button class = "page-btn">上一页</button>
-	    	<c:forEach begin="1" end="10" var="item">
-	    		<button class = "page-btn">${item }</button>
+    <div id = "panel" style = "position: relative;"></div>
+    <div style = "position: relative;top: 100px;">
+    	<div style = "margin:0 auto;width: 700px;">
+	    	<button class = "page-btn" onclick = "lastPage()">上一页</button>
+	    	<c:forEach begin="1" end="3" var="item">
+	    		<button class = "page-btn" id = "btn_${item }">${item }</button>
 	    	</c:forEach>
-	    	<button class = "page-btn">下一页</button>&emsp;共<span id = "total"></span>页
+	    	<button class = "page-btn" onclick = "nextPage()">下一页</button>&emsp;共<span id = "total"></span>页
     	</div>
     </div>
-    <div style = "bottom: 0;position: fixed;width: 1000px;">
+    <div style = "top: 50px;position: relative;width: 1000px;">
     	<div>
 	    	<button class = "btn" onclick = "gotoPay()">结算</button>
     	</div>

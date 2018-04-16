@@ -39,8 +39,7 @@ public class ProductController {
 	@RequestMapping(value = "/selectAllProduct")
 	public JSONObject selectAllProduct(@RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
 			@RequestParam(required = false, defaultValue = "12") Integer rows, // 页数大小
-			@RequestParam(required = false, defaultValue = "") String name,
-			@RequestParam(required = false, defaultValue = "") String createTime) {
+			@RequestParam(required = false, defaultValue = "") String name){
 		JSONObject params = new JSONObject();
 		params.put("pageSize", rows);
 		params.put("name", name);

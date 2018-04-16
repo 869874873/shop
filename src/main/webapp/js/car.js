@@ -1,10 +1,10 @@
 var arr = [];
+var a = 1;
 $(function() {
 	var str = "";
 	$.ajax({
 		url: 'ctrl/product/selectAllProduct',
 		success: function (data) {
-			console.log(data)
 			for (var i = 0; i < data.rows.length; i++) {
 				var product = data.rows[i];
 				str += "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
@@ -17,10 +17,14 @@ $(function() {
         		"<a onclick = \"addCar("+product.id+")\">加入购物车</a></div></div>";
 			}
 			$("#panel").html(str);
-			if(data.total%data.rows.length == 0)
+			if(data.total%data.rows.length == 0){
 				$("#total").html(data.total/data.rows.length)
-			else
+				$("#end").html(data.total/data.rows.length)
+			} else{
 				$("#total").html(parseInt(data.total/data.rows.length)+1)
+				$("#end").html(parseInt(data.total/data.rows.length)+1)
+			}
+			$("#btn_1").attr("style","background:red;color:white;");
 		}
 	})
 	
@@ -86,4 +90,64 @@ function addCar(id) {
 	setCookie("product", JSON.stringify(rows))
 	//$.messager.alert("提示", "添加成功");
 }
+
+function nextPage(){
+	if(a < 3){
+		var str = "";
+		$.ajax({
+			url: 'ctrl/product/selectAllProduct',
+			data : {
+				page :++a
+			},
+			success: function (data) {
+				for (var i = 0; i < data.rows.length; i++) {
+					var product = data.rows[i];
+					str += "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
+	        		"<img id=\"img_"+product.id+"\" src = \""+product.img+"\" style = \"width:200px;height:200px;\">" +
+	        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
+	        		"name : <span id = \"name_"+product.id+"\">"+product.name+"</span></div>" +
+	        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;color : red;\">" +
+	        		"price : <span id  = \"price_"+product.id+"\">￥"+product.price+"</span></div>" +
+	        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
+	        		"<a onclick = \"addCar("+product.id+")\">加入购物车</a></div></div>";
+				}
+				$("#panel").html(str);
+				$("#btn_"+(a-1)).attr("style","");
+				$("#btn_"+a).attr("style","background:red;color:white;");
+			}
+		})
+	}else{
+		
+	}
+}
+function lastPage(){
+	if(a > 1){
+		var str = "";
+		$.ajax({
+			url: 'ctrl/product/selectAllProduct',
+			data : {
+				page:--a
+			},
+			success: function (data) {
+				for (var i = 0; i < data.rows.length; i++) {
+					var product = data.rows[i];
+					str += "<div style = \"float:left;margin-left : 20px;margin-top: 20px;\">" +
+	        		"<img id=\"img_"+product.id+"\" src = \""+product.img+"\" style = \"width:200px;height:200px;\">" +
+	        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
+	        		"name : <span id = \"name_"+product.id+"\">"+product.name+"</span></div>" +
+	        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;color : red;\">" +
+	        		"price : <span id  = \"price_"+product.id+"\">￥"+product.price+"</span></div>" +
+	        		"<div style = \"text-align: center;font-size : 15px;margin-top:10px;\">" +
+	        		"<a onclick = \"addCar("+product.id+")\">加入购物车</a></div></div>";
+				}
+				$("#panel").html(str);
+				$("#btn_"+(a+1)).attr("style","");
+				$("#btn_"+a).attr("style","background:red;color:white;");
+			}
+		})
+	}else{
+		
+	}
+}
+
 
