@@ -18,7 +18,7 @@
 	<% HttpSession s = request.getSession();
 	%>
     <div id = "panel" style = "position: relative;"></div>
-    <div style = "position: relative;top: 100px;bottom : 50px;">
+    <div style = "position: absolute;bottom: -50px;width: 1000px;">
     	<div style = "margin:0 auto;width: 700px;">
 	    	<button class = "page-btn" onclick = "lastPage()">上一页</button>
 	    	<c:forEach begin="1" end='10' var="item">

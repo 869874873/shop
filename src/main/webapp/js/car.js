@@ -62,7 +62,6 @@ function addCar(id) {
 		price : price,
 		option : 1
 	};
-	console.log(product)
 	var curindex = getCookie("product");
 	curindex = JSON.parse(curindex);
 	var rows = {};
