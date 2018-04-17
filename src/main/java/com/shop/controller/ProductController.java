@@ -2,6 +2,8 @@ package com.shop.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,19 +29,17 @@ public class ProductController {
 	private ProductService productService;
 
 	/**
-	 * 查询所有用户（含分页）
-	 * 
 	 * @param page
 	 * @param rows
-	 * @param paramName
-	 * @param createTime
+	 * @param name
+	 * @param session
 	 * @return
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/selectAllProduct")
 	public JSONObject selectAllProduct(@RequestParam(required = false, defaultValue = "1") Integer page, // 第几页
 			@RequestParam(required = false, defaultValue = "12") Integer rows, // 页数大小
-			@RequestParam(required = false, defaultValue = "") String name){
+			@RequestParam(required = false, defaultValue = "") String name,HttpSession session){
 		JSONObject params = new JSONObject();
 		params.put("pageSize", rows);
 		params.put("name", name);
@@ -53,6 +53,10 @@ public class ProductController {
 		else
 			countProduct = productService.countProduct(params);
 		result.put("total", countProduct.size());
+		if(countProduct.size()%rows == 0)
+			session.setAttribute("total", countProduct.size()/rows);
+		else
+			session.setAttribute("total", countProduct.size()/rows+1);
 		return result;
 	}
 

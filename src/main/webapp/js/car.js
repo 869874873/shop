@@ -17,14 +17,13 @@ $(function() {
         		"<a onclick = \"addCar("+product.id+")\">加入购物车</a></div></div>";
 			}
 			$("#panel").html(str);
-			if(data.total%data.rows.length == 0){
-				$("#total").html(data.total/data.rows.length)
-				$("#end").html(data.total/data.rows.length)
-			} else{
-				$("#total").html(parseInt(data.total/data.rows.length)+1)
-				$("#end").html(parseInt(data.total/data.rows.length)+1)
-			}
 			$("#btn_1").attr("style","background:red;color:white;");
+			//因为c:foreach中的end参数为事先设置好的（想过动态设置，但是没成功），所以，将多余没用的按钮隐藏掉
+			if((parseInt(data.total/data.rows.length)+1)<10){
+				for (var i = parseInt(data.total/data.rows.length)+2; i <= 10; i++) {
+					$("#btn_"+i).attr("hidden","true");
+				}
+			}
 		}
 	})
 	
@@ -63,6 +62,7 @@ function addCar(id) {
 		price : price,
 		option : 1
 	};
+	console.log(product)
 	var curindex = getCookie("product");
 	curindex = JSON.parse(curindex);
 	var rows = {};
@@ -91,8 +91,8 @@ function addCar(id) {
 	//$.messager.alert("提示", "添加成功");
 }
 
-function nextPage(){
-	if(a < 3){
+function nextPage(index){
+	if(a < index){
 		var str = "";
 		$.ajax({
 			url: 'ctrl/product/selectAllProduct',
@@ -114,6 +114,11 @@ function nextPage(){
 				$("#panel").html(str);
 				$("#btn_"+(a-1)).attr("style","");
 				$("#btn_"+a).attr("style","background:red;color:white;");
+//				if((parseInt(data.total/data.rows.length)+1)>10){
+//					for (var i = parseInt(data.total/data.rows.length)+2; i <= 10; i++) {
+//						$("#btn_"+i).attr("hidden","true");
+//					}
+//				}
 			}
 		})
 	}else{
