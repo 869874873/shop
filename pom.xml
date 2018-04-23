@@ -192,7 +192,7 @@
 		</dependency> -->
 	</dependencies>
 	<build>
-		<finalName>mvn</finalName>
+		<finalName>shoppingcar</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
