@@ -120,9 +120,8 @@ function nextPage(index){
 //				}
 			}
 		})
-	}else{
-		
 	}
+//	if(index/10)
 }
 function lastPage(){
 	if(a > 1){

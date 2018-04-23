@@ -113,12 +113,7 @@ function delProduct(index, data, id) {
 			break;
 		}
 	}
-	setCookie("product", JSON.stringify(curindex))
-	console.log(curindex.rows.length)
-	if(curindex.rows.length == 1){
-		$('#datagrid').datagrid('refreshRow', index);
-		$('#datagrid').datagrid('deleteRow', index);
-	}
-	else
-		$('#datagrid').datagrid('deleteRow', index);
+	setCookie("product", JSON.stringify(curindex));
+	//暂时先留一个坑吧。。。
+	$('#datagrid').datagrid('deleteRow', index);
 }
